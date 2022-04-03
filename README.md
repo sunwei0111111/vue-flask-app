@@ -1,4 +1,4 @@
-# vue-flask-app test
+# vue-flask-app
 
 ## Project setup
 ```

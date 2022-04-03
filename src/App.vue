@@ -1,24 +1,33 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <h1>{{ datetime }}</h1>
+    <h2>aaaaa</h2>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
-}
+  name: "App",
+  data() {
+    return { datetime: "eeeeeee" };
+  },
+  methods: {
+    initData() {
+      this.$ajax.get("/time", {}).then((res) => {
+        this.datetime = res.data.time;
+      });
+    },
+  },
+  mounted() {
+    this.initData();
+  },
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
